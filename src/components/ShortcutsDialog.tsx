@@ -96,7 +96,7 @@ const Footer = () => (
       paddingTop: 16,
     }}
   >
-    <a
+    {/* <a
       href="https://blog.excalidraw.com"
       target="_blank"
       rel="noopener noreferrer"
@@ -116,7 +116,7 @@ const Footer = () => (
       rel="noopener noreferrer"
     >
       {t("shortcutsDialog.github")}
-    </a>
+    </a> */}
   </div>
 );
 

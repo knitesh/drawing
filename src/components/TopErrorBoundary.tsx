@@ -62,9 +62,9 @@ export class TopErrorBoundary extends React.Component<
       console.error(error);
     }
 
-    window.open(
-      `https://github.com/excalidraw/excalidraw/issues/new?body=${body}`,
-    );
+    // window.open(
+    //   `https://github.com/excalidraw/excalidraw/issues/new?body=${body}`,
+    // );
   }
 
   private errorSplash() {

@@ -14,7 +14,7 @@ export function LanguageList({
 }) {
   return (
     <React.Fragment>
-      <select
+      {/* <select
         className={`dropdown-select dropdown-select__language${
           floating ? " dropdown-select--floating" : ""
         }`}
@@ -27,7 +27,7 @@ export function LanguageList({
             {language.label}
           </option>
         ))}
-      </select>
+      </select> */}
     </React.Fragment>
   );
 }
