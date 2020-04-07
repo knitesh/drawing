@@ -1,0 +1,119 @@
+{
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not ie <= 11",
+      "not op_mini all",
+      "not safari < 12",
+      "not kaios <= 2.5",
+      "not edge < 79",
+      "not chrome < 70",
+      "not and_uc < 13",
+      "not samsung < 10"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@sentry/browser": "5.15.4",
+    "browser-nativefs": "0.4.0",
+    "i18next-browser-languagedetector": "4.0.2",
+    "nanoid": "2.1.11",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-scripts": "3.4.1",
+    "roughjs": "4.0.4",
+    "save-file": "2.3.1",
+    "socket.io-client": "2.3.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "5.3.0",
+    "@testing-library/react": "10.0.1",
+    "@types/jest": "25.1.4",
+    "@types/nanoid": "2.1.0",
+    "@types/react": "16.9.27",
+    "@types/react-dom": "16.9.5",
+    "@types/socket.io-client": "1.4.32",
+    "asar": "3.0.2",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.10.1",
+    "eslint-plugin-prettier": "3.1.2",
+    "husky": "4.2.3",
+    "jest-canvas-mock": "2.2.0",
+    "lint-staged": "10.0.10",
+    "node-sass": "4.13.1",
+    "pepjs": "0.5.2",
+    "prettier": "2.0.2",
+    "rewire": "5.0.0",
+    "typescript": "3.8.3"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "prettier",
+      "react-app"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "curly": "warn",
+      "no-console": [
+        "warn",
+        {
+          "allow": [
+            "warn",
+            "error",
+            "info"
+          ]
+        }
+      ],
+      "no-else-return": "warn",
+      "no-useless-return": "warn",
+      "prefer-const": [
+        "warn",
+        {
+          "destructuring": "all"
+        }
+      ],
+      "prefer-template": "warn",
+      "prettier/prettier": "warn"
+    }
+  },
+  "homepage": ".",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!(roughjs|browser-nativefs)/)"
+    ]
+  },
+  "private": true,
+  "scripts": {
+    "build": "npm run build:app && npm run build:zip",
+    "build-node": "node ./scripts/build-node.js",
+    "build:app": "REACT_APP_GIT_SHA=$NOW_GITHUB_COMMIT_SHA react-scripts build",
+    "build:zip": "node ./scripts/build-version.js",
+    "eject": "react-scripts eject",
+    "fix": "npm run fix:other && npm run fix:code",
+    "fix:code": "npm run test:code -- --fix",
+    "fix:other": "npm run prettier -- --write",
+    "prettier": "prettier \"**/*.{css,scss,json,md,html,yml}\" --ignore-path=.eslintignore",
+    "start": "react-scripts start",
+    "test": "npm run test:app",
+    "test:app": "react-scripts test --env=jsdom --passWithNoTests",
+    "test:code": "eslint --max-warnings=0 --ignore-path .gitignore --ext .js,.ts,.tsx .",
+    "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache",
+    "test:other": "npm run prettier -- --list-different",
+    "test:typecheck": "tsc"
+  }
+}
